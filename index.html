@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <meta property="og:title" content="정콩이의 기록 보관소" />
+    <meta name="referrer" content="origin" />
     <meta
       property="og:description"
       content="학생과 개발자 사이, 정콩이의 기록과 배움을 담은 개인 페이지"
@@ -136,24 +137,29 @@
         <h2>나를 울린 인생 작품</h2>
         <ul class="works-list">
           <li>
-            <article class="work-card">
+            <article class="work-card has-media">
               <div class="work-thumbnail">
                 <img src="./images/work-1.jpg" alt="영화 위대한 쇼맨 포스터" />
               </div>
               <div class="work-info">
-                <h3>위대한 쇼맨</h3>
-                <p>
-                  좋아하는 영화나 드라마는 아껴 보는 편인데, 위대한 쇼맨은
-                  연출과 음악이 너무 좋아서 그 감흥이 쉽게 사라지지 않는
-                  작품입니다. 장면마다 몰입감을 끌어올리는 음악과 무대 같은
-                  연출이 특히 인상적입니다.
-                </p>
-                <iframe
-                  src="https://www.youtube.com/embed/ydh9z7mI0oU"
-                  title="위대한 쇼맨 뮤직비디오"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+                <div class="work-detail">
+                  <h3>위대한 쇼맨</h3>
+                  <p>
+                    좋아하는 영화나 드라마는 아껴 보는 편인데, 위대한 쇼맨은
+                    연출과 음악이 너무 좋아서 그 감흥이 쉽게 사라지지 않는
+                    작품입니다. 장면마다 몰입감을 끌어올리는 음악과 무대 같은
+                    연출이 특히 인상적입니다.
+                  </p>
+                </div>
+                <div class="work-media">
+                  <iframe
+                    src="https://www.youtube.com/embed/28KRPhVzCus?si=WQg1AcXBwIlPYhqK"
+                    title="위대한 쇼맨 뮤직비디오"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
               </div>
             </article>
           </li>
@@ -163,12 +169,14 @@
                 <img src="./images/work-2.png" alt="드라마 스물다섯 스물하나 포스터" />
               </div>
               <div class="work-info">
-                <h3>스물다섯 스물하나</h3>
-                <p>
-                  대사 하나하나가 오래 남는 작품이라 특히 좋아합니다.<br> 청춘의
-                  감정선을 섬세하게 담아내는 방식이 인상적이었고, 시간이
-                  지나도 자주 떠오르는 문장들이 많았습니다.
-                </p>
+                <div class="work-detail">
+                  <h3>스물다섯 스물하나</h3>
+                  <p>
+                    대사 하나하나가 오래 남는 작품이라 특히 좋아합니다.<br> 청춘의
+                    감정선을 섬세하게 담아내는 방식이 인상적이었고, 시간이
+                    지나도 자주 떠오르는 문장들이 많았습니다.
+                  </p>
+                </div>
               </div>
             </article>
           </li>

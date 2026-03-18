@@ -408,6 +408,33 @@ body.modal-open {
   width: 100%;
 }
 
+.work-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.work-card.has-media .work-info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 360px);
+  gap: 18px;
+  align-items: start;
+}
+
+.work-media {
+  padding: 10px;
+  border-radius: 20px;
+  background:
+    linear-gradient(160deg, rgba(39, 80, 63, 0.08), rgba(255, 255, 255, 0.72));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.46);
+}
+
+.work-media iframe,
+.work-media video {
+  max-width: 100%;
+  margin-top: 0;
+}
+
 .work-info h3 {
   font-size: 1.3rem;
   color: var(--font-default-color);
@@ -601,6 +628,10 @@ footer p {
 
   .work-card {
     flex-direction: column;
+  }
+
+  .work-card.has-media .work-info {
+    grid-template-columns: 1fr;
   }
 
   .work-thumbnail {
