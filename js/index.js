@@ -3,6 +3,11 @@ const tilList = document.querySelector("#til-list");
 const tilDateInput = document.querySelector("#til-date");
 const tilTitleInput = document.querySelector("#til-title");
 const tilContentInput = document.querySelector("#til-content");
+const galleryImages = document.querySelectorAll(".gallery-grid img");
+const imageModal = document.querySelector("#image-modal");
+const imageModalImg = document.querySelector("#image-modal-img");
+const imageModalTitle = document.querySelector("#image-modal-title");
+const modalCloseTargets = document.querySelectorAll("[data-modal-close]");
 
 function getTodayDate() {
   const today = new Date();
@@ -36,6 +41,34 @@ function createTilItem(date, title, content) {
   return tilItem;
 }
 
+function openImageModal(image) {
+  if (!imageModal || !imageModalImg) {
+    return;
+  }
+
+  imageModalImg.src = image.src;
+  imageModalImg.alt = image.alt;
+  if (imageModalTitle) {
+    imageModalTitle.textContent = image.alt;
+  }
+  imageModal.hidden = false;
+  document.body.classList.add("modal-open");
+}
+
+function closeImageModal() {
+  if (!imageModal || !imageModalImg) {
+    return;
+  }
+
+  imageModal.hidden = true;
+  imageModalImg.src = "";
+  imageModalImg.alt = "";
+  if (imageModalTitle) {
+    imageModalTitle.textContent = "갤러리 이미지 크게 보기";
+  }
+  document.body.classList.remove("modal-open");
+}
+
 if (tilForm && tilList && tilDateInput && tilTitleInput && tilContentInput) {
   tilForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -55,3 +88,19 @@ if (tilForm && tilList && tilDateInput && tilTitleInput && tilContentInput) {
     tilTitleInput.focus();
   });
 }
+
+galleryImages.forEach(function (image) {
+  image.addEventListener("click", function () {
+    openImageModal(image);
+  });
+});
+
+modalCloseTargets.forEach(function (target) {
+  target.addEventListener("click", closeImageModal);
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && imageModal && !imageModal.hidden) {
+    closeImageModal();
+  }
+});

@@ -269,7 +269,9 @@ main {
   aspect-ratio: 1 / 1;
   border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 22px;
+  cursor: zoom-in;
   object-fit: cover;
+  object-position: center var(--gallery-focus-y, 50%);
   background:
     linear-gradient(135deg, rgba(240, 216, 194, 0.7), rgba(39, 80, 63, 0.12));
   box-shadow: 0 14px 28px rgba(82, 60, 36, 0.12);
@@ -283,6 +285,84 @@ main {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 22px 40px rgba(82, 60, 36, 0.18);
   filter: saturate(1.08);
+}
+
+.gallery-grid img.show-full {
+  padding: 10px;
+  object-fit: contain;
+  object-position: center;
+  background:
+    linear-gradient(160deg, rgba(255, 251, 246, 0.95), rgba(240, 216, 194, 0.58));
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+}
+
+.image-modal[hidden] {
+  display: none;
+}
+
+.image-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(29, 22, 17, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.image-modal-dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: min(92vw, 980px);
+  max-height: 88vh;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 26px;
+  background:
+    linear-gradient(160deg, rgba(32, 27, 23, 0.94), rgba(55, 41, 31, 0.92));
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+}
+
+.image-modal-title {
+  padding-right: 72px;
+  color: rgba(255, 245, 235, 0.88);
+  font-size: 0.95rem;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #fff7ef;
+  cursor: pointer;
+}
+
+.image-modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#image-modal-img {
+  width: 100%;
+  max-height: calc(88vh - 84px);
+  border-radius: 18px;
+  object-fit: contain;
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 .works-list {
@@ -589,5 +669,28 @@ footer p {
 
   .til-form button {
     width: 100%;
+  }
+
+  .image-modal {
+    padding: 16px;
+  }
+
+  .image-modal-dialog {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .image-modal-title {
+    padding-right: 0;
+    font-size: 0.9rem;
+  }
+
+  .image-modal-close {
+    position: static;
+    align-self: flex-end;
+  }
+
+  #image-modal-img {
+    max-height: calc(88vh - 110px);
   }
 }
